@@ -15,6 +15,7 @@ adds the following methods to all integers if applicable:
 | clamp(min, max)  |                                clamps an integer between `min`, `max`                                 |
 | pow(pow: uint32) |                                    raises n to the power of `pow`                                     |
 |    log(base)     |                           returns the logarithm base `base` of the integer                            |
+|     ln(base)     |                             returns the natrual logarithm of the integer                              |
 |      log2()      |                             returns the logarithm base `2` of the integer                             |
 |     log10()      |                            returns the logarithm base `10` of the integer                             |
 |    min(other)    |                             returns the minimum between itself and other                              |
