@@ -1,0 +1,6 @@
+
+
+
+extern fn aligned_alloc(align: usize, size: usize) = uint8*;
+extern fn free(ptr: uint8*);
+extern fn exit(code: int32);

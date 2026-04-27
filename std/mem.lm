@@ -1,0 +1,17 @@
+use libc
+
+
+
+
+//allocates a contiguous block of T's of size 'count'
+//todo: generic typenames are not being replaced with the concrete type in the function bodies
+
+fn<T> alloc(count: usize) = T* {
+    let ptr = aligned_alloc(alignof(T), sizeof(T) * count) as T*;
+
+    return ptr;
+}
+
+fn<T> dealloc(ptr: T*) {
+    free(ptr as uint8*);
+}

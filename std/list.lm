@@ -1,0 +1,57 @@
+use mem
+
+
+struct<T> List {
+    array: T*,
+    size: usize,
+    length: usize,
+}
+
+
+
+modify<T> List<T> {
+    public fn new() = List<T> {
+        return List(0 as T*, 0, 0);
+    }
+
+    public fn add(self&, val: T) {
+        if self.length == self.size {
+            let new_size = self.length * 2 + 1;
+
+            let new_alloc = alloc.<T>(new_size);
+            let new_alloc_slice = slice(new_alloc, new_size);
+
+            if self.array != 0 as T* {
+                let ray_slice = slice(self.array, self.length);
+
+                let i = 0 as usize;
+
+                while i < self.length {
+                    *new_alloc_slice[i] = *ray_slice[i];
+                }
+
+                dealloc.<T>(self.array);
+            }
+            self.size = new_size;
+            self.array = new_alloc;
+        }
+
+        **(self.array + self.length as isize) = val;
+        self.length += 1;
+    }
+
+    public fn get(self&, ind: usize) = T& {
+        if ind >= self.length {
+            //print an error, for now do nothing
+            exit(3);
+        }
+
+        return **(self.array + ind);
+    }
+
+    fn operator drop(self&) {
+        if self.array != 0 as T* {
+            dealloc.<T>(self.array);
+        }
+    }
+}
