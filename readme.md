@@ -25,3 +25,27 @@ adds the following methods to all integers if applicable:
 |     signum()     |                                 returns 1 if positive, -1 if negative                                 |
 |    positive()    |                                returns true if the number is positive                                 |
 |    negative()    |                                returns true if the number is negative                                 |
+
+### FMath
+|       Name        |                                              Description                                              |
+|:-----------------:|:-----------------------------------------------------------------------------------------------------:|
+|       abs()       |                         signed only, returns the absolute value of an number                          |
+|      sqrt()       | returns the square root of a number, negating if the input is also negative to denote complex results |
+|  clamp(min, max)  |                                 clamps an number between `min`, `max`                                 |
+| pow(pow: float32) |                                    raises n to the power of `pow`                                     |
+| powi(pow: uint32) |                                    raises n to the power of `pow`                                     |
+|     log(base)     |                            returns the logarithm base `base` of the number                            |
+|     ln(base)      |                              returns the natrual logarithm of the number                              |
+|      log2()       |                             returns the logarithm base `2` of the number                              |
+|      log10()      |                             returns the logarithm base `10` of the number                             |
+|    min(other)     |                             returns the minimum between itself and other                              |
+|    max(other)     |                             returns the maximum between itself and other                              |
+|      even()       |                                  returns true if the number is even                                   |
+|       odd()       |                                   returns true if the number is odd                                   |
+|     signum()      |                                 returns 1 if positive, -1 if negative                                 |
+|    positive()     |                                returns true if the number is positive                                 |
+|    negative()     |                                returns true if the number is negative                                 |
+|      round()      |                           rounds away from zero to the nearest whole number                           |
+|      floor()      |                  rounds away from zero to the nearest whole number less than itself                   |
+|      ceil()       |                 rounds away from zero to the nearest whole number greater than itself                 |
+|      frac()       |                        returns the fractional part of a floating point number                         |
