@@ -1,0 +1,212 @@
+
+modify float32 {
+    public fn abs(self) = float32 {
+        if self < 0 as float32 {
+            return -self;
+        }
+        return self;
+    }
+
+    public fn sqrt(self) = float32 {
+        if self < 0 as float32 {
+            return -__float32_sqrt(-self);
+        }
+        return __float32_sqrt(self);
+    }
+
+    public fn min(self, other: float32) = float32 {
+        if self < other {
+            return self;
+        }
+        return other;
+    }
+
+    public fn max(self, other: float32) = float32 {
+        if self > other {
+            return self;
+        }
+        return other;
+    }
+
+    public fn clamp(self, min: float32, max: float32) = float32 {
+        return self.min(max).max(min);
+    }
+
+    public fn pow(self, pow: float32) = float32 {
+        return __float32_pow(self, pow);
+    }
+
+    public fn powi(self, pow: uint32) = float32 {
+        return __float32_pow(self, pow as float32);
+    }
+
+    public fn ln(self) = float32 {
+        return __float32_log(self);
+    }
+
+    public fn log2(self) = float32 {
+        let lns = __float32_log(self);
+        let ln2 = __float32_log(2 as float32);
+        return lns / ln2;
+    }
+
+    public fn log10(self) = float32 {
+        let lns = __float32_log(self);
+        let ln10 = __float32_log(10 as float32);
+        return lns / ln10;
+    }
+
+    public fn log(self, base: float32) = float32 {
+        let lns = __float32_log(self);
+        let lnb = __float32_log(base);
+        return lns / lnb;
+    }
+
+    public fn even(self) = bool {
+        return (__float32_floor(self) as int32 & 1) == 0;
+    }
+
+    public fn odd(self) = bool {
+        return (__float32_floor(self) as int32 & 1) > 0;
+    }
+
+    public fn signum(self) = float32 {
+        if self < 0 as float32 {
+            return -1 as float32;
+        }
+        if self > 0 as float32 {
+            return 1 as float32;
+        }
+        return 0 as float32;
+    }
+
+    public fn positive(self) = bool {
+        return self > 0 as float32;
+    }
+
+    public fn negative(self) = bool {
+        return self < 0 as float32;
+    }
+
+    public fn floor(self) = float32 {
+        return __float32_floor(self);
+    }
+
+    public fn ceil(self) = float32 {
+        return __float32_ceil(self);
+    }
+
+    public fn round(self) = float32 {
+        return __float32_round(self);
+    }
+
+    public fn frac(self) = float32 {
+        return self - __float32_floor(self);
+    }
+}
+
+modify float64 {
+    public fn abs(self) = float64 {
+        if self < 0 as float64 {
+            return -self;
+        }
+        return self;
+    }
+
+    public fn sqrt(self) = float64 {
+        if self < 0 as float64 {
+            return -__float64_sqrt(-self);
+        }
+        return __float64_sqrt(self);
+    }
+
+    public fn min(self, other: float64) = float64 {
+        if self < other {
+            return self;
+        }
+        return other;
+    }
+
+    public fn max(self, other: float64) = float64 {
+        if self > other {
+            return self;
+        }
+        return other;
+    }
+
+    public fn clamp(self, min: float64, max: float64) = float64 {
+        return self.min(max).max(min);
+    }
+
+    public fn pow(self, pow: float64) = float64 {
+        return __float64_pow(self, pow);
+    }
+
+    public fn powi(self, pow: uint32) = float64 {
+        return __float64_pow(self, pow as float64);
+    }
+
+    public fn ln(self) = float64 {
+        return __float64_log(self);
+    }
+
+    public fn log2(self) = float64 {
+        let lns = __float64_log(self);
+        let ln2 = __float64_log(2 as float64);
+        return lns / ln2;
+    }
+
+    public fn log10(self) = float64 {
+        let lns = __float64_log(self);
+        let ln10 = __float64_log(10 as float64);
+        return lns / ln10;
+    }
+
+    public fn log(self, base: float64) = float64 {
+        let lns = __float64_log(self);
+        let lnb = __float64_log(base);
+        return lns / lnb;
+    }
+
+    public fn even(self) = bool {
+        return (__float64_floor(self) as int64 & 1) == 0;
+    }
+
+    public fn odd(self) = bool {
+        return (__float64_floor(self) as int64 & 1) > 0;
+    }
+
+    public fn signum(self) = float64 {
+        if self < 0 as float64 {
+            return -1 as float64;
+        }
+        if self > 0 as float64 {
+            return 1 as float64;
+        }
+        return 0 as float64;
+    }
+
+    public fn positive(self) = bool {
+        return self > 0 as float64;
+    }
+
+    public fn negative(self) = bool {
+        return self < 0 as float64;
+    }
+
+    public fn floor(self) = float64 {
+        return __float64_floor(self);
+    }
+
+    public fn ceil(self) = float64 {
+        return __float64_ceil(self);
+    }
+
+    public fn round(self) = float64 {
+        return __float64_round(self);
+    }
+
+    public fn frac(self) = float64 {
+        return self - __float64_floor(self);
+    }
+}
