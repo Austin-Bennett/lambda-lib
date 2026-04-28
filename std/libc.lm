@@ -4,3 +4,6 @@
 extern fn aligned_alloc(align: usize, size: usize) = uint8*;
 extern fn free(ptr: uint8*);
 extern fn exit(code: int32);
+
+//basically printf with no args
+extern fn printf(str: uint8*);
