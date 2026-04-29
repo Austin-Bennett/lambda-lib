@@ -14,6 +14,10 @@ modify<T> List<T> {
         return List.<T>(0 as usize as T*, 0, 0);
     }
 
+    public fn len(self&) = usize {
+        return self.length;
+    }
+
     public fn add(self&, val: T) {
         if self.length == self.size {
             let new_size = self.length * 2 + 1;
@@ -21,7 +25,7 @@ modify<T> List<T> {
             let new_alloc = alloc.<T>(new_size);
             let new_alloc_slice = slice(new_alloc, new_size);
 
-            if self.array != 0 as usize as T* {
+            if self.array != nullptr as T* {
                 let ray_slice = slice(self.array, self.length);
 
                 let i = 0 as usize;
@@ -52,7 +56,19 @@ modify<T> List<T> {
     }
 
     fn operator drop(self&) {
-        if self.array != 0 as usize as T* {
+
+
+        if self.array != nullptr as T* {
+            let sl = slice(self.array, self.length);
+
+            let i = 0 as usize;
+            while i < self.length {
+
+                __drop(sl[i]);
+
+                i += 1;
+            }
+
             dealloc.<T>(self.array);
         }
     }
